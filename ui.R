@@ -1,14 +1,19 @@
 library(shiny)
 library(ggplot2)
 library(DT)
-library(openxlsx)
-library(dplyr)
+library(tidyverse)
+library(MASS)
+library(dummies)
+library(VIM)
+library(DMwR)
 library(rpart)
 library(rpart.plot)
 library(carData)
 library(caret)
 library(funModeling)
-
+library(ROSE)
+library(ROCR)
+library(pROC)
 
 ui <- fluidPage(
   theme = "formato.css",
