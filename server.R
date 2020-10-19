@@ -4,16 +4,13 @@ server <- function(input, output,session){
     !is.numeric(x)
   }
   
+  datapath <- paste(getwd(), "data", "base_entrenamiento.csv", sep="/")
   
   datareact <- reactive({
     input$go
     isolate(
-      if(input$select == "Datos Externos"){
-      dir <- input$file
-      read.table(dir$datapath, sep=input$sep, header = T )
-    } else{
-      get(input$data)
-    })
+      read.table(datapath, fileEncoding="Latin1", sep=",", header = T )
+    )
   })
   
   #Datos

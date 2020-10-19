@@ -18,7 +18,7 @@ ui <- fluidPage(
        wellPanel(
          radioButtons(inputId = "select", 
                       label = "Seleccione la base de datos con la que desea trabajar", 
-                      choices = c("Datos Externos", "Predeterminados"), 
+                      choices = "Datos Externos",
                       selected = " ")),
        
     
@@ -31,19 +31,6 @@ ui <- fluidPage(
                                                label = 'Separador', 
                                                choices = c(Coma=',',Punto_y_coma=';',Tab='\t', Espacio=''), 
                                                selected = ','))),
-      
-
-       
-       conditionalPanel(condition = "input.select =='Predeterminados'",
-       wellPanel(
-                 radioButtons(inputId = "data",
-                              label = "Escoja una de las bases de datos propuestas:", 
-                              choices = c("Estudio_Aborto_Canada_2011" = "CES11", 
-                                          "Datos_Voluntariado" = "Cowles")))),
-
-                          selectInput(inputId = "y", 
-                                      label = "Variable respuesta", 
-                                      choices = NA, selected = ""),
        
               actionButton(inputId = "go", 
                     label = "Procesar",
