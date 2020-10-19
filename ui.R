@@ -1,0 +1,66 @@
+library(shiny)
+library(ggplot2)
+library(DT)
+library(openxlsx)
+library(dplyr)
+library(rpart)
+library(rpart.plot)
+library(carData)
+library(caret)
+library(funModeling)
+
+
+ui <- fluidPage(
+  theme = "formato.css",
+  titlePanel(title = "Aplicación árboles de decisión",windowTitle = "Tree App"),
+  sidebarLayout(
+    sidebarPanel(width = 3, 
+       wellPanel(
+         radioButtons(inputId = "select", 
+                      label = "Seleccione la base de datos con la que desea trabajar", 
+                      choices = c("Datos Externos", "Predeterminados"), 
+                      selected = " ")),
+       
+    
+       conditionalPanel(condition = "input.select =='Datos Externos'",
+                        wellPanel(
+                                  
+                                  fileInput(inputId = "file",
+                                            label = "Ingrese el archivo de su preferencia"),
+                                  radioButtons(inputId = 'sep',
+                                               label = 'Separador', 
+                                               choices = c(Coma=',',Punto_y_coma=';',Tab='\t', Espacio=''), 
+                                               selected = ','))),
+      
+
+       
+       conditionalPanel(condition = "input.select =='Predeterminados'",
+       wellPanel(
+                 radioButtons(inputId = "data",
+                              label = "Escoja una de las bases de datos propuestas:", 
+                              choices = c("Estudio_Aborto_Canada_2011" = "CES11", 
+                                          "Datos_Voluntariado" = "Cowles")))),
+
+                          selectInput(inputId = "y", 
+                                      label = "Variable respuesta", 
+                                      choices = NA, selected = ""),
+       
+              actionButton(inputId = "go", 
+                    label = "Procesar",
+                    icon =icon("play-circle")) 
+       
+    ),
+    mainPanel( width = 9,
+          
+      tabsetPanel(
+        tabPanel("Datos", dataTableOutput(outputId = "tabla")),
+        tabPanel("Resultados", verbatimTextOutput(outputId = "res")),
+        tabPanel("Grafica", plotOutput(outputId = "graph")),
+        tabPanel("Predicciones", verbatimTextOutput(outputId = "pred"))
+                
+),
+        
+      )
+    )
+  )
+  

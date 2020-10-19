@@ -1,0 +1,85 @@
+
+body{
+background-image: url("bosque.gif");
+background-position: center;
+margin-top: 3%;
+margin-right: 2%;
+margin-left: 2%;
+margin-bottom: 3%;
+}
+
+h1 {
+font-style: italic;
+font-weight: lighter;
+color: purple;
+font-family: Helvetica;
+font-size: 40pt;
+}
+
+h2 {
+font-style: oblique;
+font-weight: bold;
+color: pink;
+font-family: serif;
+font-size: 30pt;
+}
+
+h3 {
+font-style: italic;
+font-weight: normal;
+color: magenta ;
+font-family: Book Antiqua;
+font-size: 20pt;
+}
+
+h4 {
+font-style: oblique;
+font-weight: normal;
+color: skyblue;
+font-family: Tahoma;
+font-size: 15pt;
+}
+
+#col1 {
+float: right;
+WIDTH: 60%;
+height: 30%;
+}
+
+#col2 {
+float: left;
+WIDTH: 50%;
+height: 25%;
+}
+
+
+table{
+ border: "padding 5px solid;	
+ margin-right: 0%;
+margin-left: 5%;
+}
+
+p{
+font-style: normal;
+font-weight: normal;
+color: white;
+font-family: Arizonia;
+font-size: 12pt;
+margin-right: 5%;
+margin-left: 5%;
+}
+
+button{
+border-radius: 100%; 
+width: 100%;
+font-size: 20px;
+background-color: purple;	
+}
+
+#plan {
+float: left;
+margin-right: 0%;
+margin-left: 0%;
+border: none;
+
+}
